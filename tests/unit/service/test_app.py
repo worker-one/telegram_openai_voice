@@ -1,4 +1,4 @@
-from src.telegram_bot.service.app import App
+from src.telegram_openai_voice.service.app import App
 
 def test_app_run():
     # Arrange

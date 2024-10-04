@@ -5,7 +5,7 @@ import os
 import telebot
 from dotenv import find_dotenv, load_dotenv
 
-from telegram_bot.api.handlers import welcome, audio
+from telegram_openai_voice.api.handlers import welcome, audio
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)

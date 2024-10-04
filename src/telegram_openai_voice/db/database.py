@@ -33,7 +33,7 @@ DATABASE_URL = f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NA
 def get_enginge():
     return create_engine(
         DATABASE_URL,
-        connect_args={'connect_timeout': 5, "application_name": "telegram_bot"},
+        connect_args={'connect_timeout': 5, "application_name": "telegram_openai_voice"},
         poolclass=NullPool
     )
 def create_tables():
