@@ -5,7 +5,7 @@ from pathlib import Path
 from telegram_openai_voice.db import crud
 from telegram_openai_voice.service.app import App
 from openai import OpenAI
-import pyaudio
+#import pyaudio
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -78,22 +78,22 @@ def generate_speech_response(text):
         response.stream_to_file(speech_file_path)
     return speech_file_path
 
-def stream_to_speakers():
-    player_stream = pyaudio.PyAudio().open(format=pyaudio.paInt16, channels=1, rate=24000, output=True)
+# def stream_to_speakers():
+#     player_stream = pyaudio.PyAudio().open(format=pyaudio.paInt16, channels=1, rate=24000, output=True)
 
-    start_time = time.time()
+#     start_time = time.time()
 
-    with openai.audio.speech.with_streaming_response.create(
-        model="tts-1",
-        voice="alloy",
-        response_format="pcm",
-        input="""I see skies of blue and clouds of white
-                The bright blessed days, the dark sacred nights
-                And I think to myself
-                What a wonderful world""",
-    ) as response:
-        print(f"Time to first byte: {int((time.time() - start_time) * 1000)}ms")
-        for chunk in response.iter_bytes(chunk_size=1024):
-            player_stream.write(chunk)
+#     with openai.audio.speech.with_streaming_response.create(
+#         model="tts-1",
+#         voice="alloy",
+#         response_format="pcm",
+#         input="""I see skies of blue and clouds of white
+#                 The bright blessed days, the dark sacred nights
+#                 And I think to myself
+#                 What a wonderful world""",
+#     ) as response:
+#         print(f"Time to first byte: {int((time.time() - start_time) * 1000)}ms")
+#         for chunk in response.iter_bytes(chunk_size=1024):
+#             player_stream.write(chunk)
 
-    print(f"Done in {int((time.time() - start_time) * 1000)}ms.")
+#     print(f"Done in {int((time.time() - start_time) * 1000)}ms.")
